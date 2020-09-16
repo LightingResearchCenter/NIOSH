@@ -1,5 +1,4 @@
 /*NAVBAR*/
-
 nav{
   font-size: 1.0rem;
 }
@@ -114,12 +113,8 @@ nav{
 
 /*BANNER*/
 .banner {
-  background-image: url("../img/banner.webp");
-  background-position: 0 54%;
-  background-size: cover;
   height: 100%;
   max-height: 100%;
-  position: relative;
 }
 
 .banner::after {
@@ -137,15 +132,13 @@ nav{
 .banner-box {
   background-color: rgb(30,30,30);
   background-color: rgba(30, 30, 30, 0.7);
-  border-radius: 10px;
-  box-sizing: bordor-box;
+  border-radius: 2rem;
   color: #fff;
-  font-size: 1.1em;
-  font-weight: 200;
-  margin: auto;
-  padding: 10px;
+  font-size: 1.5em;
+  font-weight: 400;
   text-align: center;
   width: 60%;
+  margin: auto;
 }
 
 .banner-content {
@@ -156,12 +149,10 @@ nav{
 .banner-title {
   color: #fff;
   font-family: "Oswald", sans-serif;
-  font-size: 6em;
+  font-size: 8em;
   font-weight: 600;
   letter-spacing: 0.75vw;
-  line-height: 6rem;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  line-height: 8rem;
   text-align: center;
   text-transform: uppercase;
 }
@@ -190,6 +181,16 @@ nav{
   width: 100%;
   height: auto;
   transform: translateY(-50%);
+}
+
+.btn-lrc{
+  background-color: #00205b;
+  color: white;
+}
+
+.btn-lrc:hover{
+  background-color:  #0069d9;
+  color: white;
 }
 
 .h-100vh-minus-nav {
@@ -566,25 +567,11 @@ article {
   padding-right: 2.5rem;
 }
 
-.article-content{
-  margin-top: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 figure{
   display: block;
   margin: 0 0 1.5rem 0;
   padding: 1.5rem;
   border-radius: 0.5rem;
-}
-
-.section-title-container{
-  border-bottom: 2px solid #383838;
-  text-align: center;
-}
-
-.section-title{
-  margin: .5rem 0;
 }
 
 figure .img{
@@ -602,6 +589,37 @@ figure figcaption{
   border-radius: 0.25rem;
 }
 
+.article-content{
+  margin-top: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.animation-card-bg{
+  background: #ededed;
+}
+
+.animation-card-ul{
+  font-size: 1rem;
+}
+
+.section-inner-title{
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.section-title-container{
+  border-bottom: 2px solid #383838;
+  text-align: center;
+}
+
+.section-title{
+  margin: .5rem 0;
+}
+
+
+
 @media only screen and (max-width: 768px){
 
 }
@@ -613,9 +631,8 @@ figure figcaption{
 
   .mobile-figure{
     float: none;
+    padding: 1rem;
     width: 100%;
-    padding: 0;
-    margin: 0;
   }
 
   .mobile-figure img{
@@ -645,6 +662,13 @@ html, body {
   padding: 0;
 }
 
+.anchored::before{
+  content: "";
+  display: block;
+  height: 64.3167px;
+  margin: 64.3167px 0 0;
+}
+
 .drop-shadow{
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18), 0 10px 10px rgba(0, 0, 0, 0.24);
 }
@@ -656,4 +680,11 @@ html, body {
   position: -o-sticky;
   position: sticky;
   top: 0;
+}
+
+@media only screen and (max-width: 768px){
+  .anchored{
+    margin-top: -69.2px;
+    padding-top: 69.2px;
+  }
 }

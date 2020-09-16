@@ -1,4 +1,10 @@
 //ACCORDION
+function handleWindowResize(){
+  window.onresize = function(){
+    setNavOffset();
+  }
+}
+
 function closeOthersLevel1(label){
 	var labels = $('.acnav__label');
 	for(var i = 0; i < labels.length; i++){
@@ -170,19 +176,20 @@ function accordionScrollSpy(){
       if ($(section)[0].getBoundingClientRect().top < navOffset && $(section)[0].getBoundingClientRect().top > (0 - $(section).outerHeight(true))){
         currentSection = $(section);
       }
-    });
+		});
     if (currentSection){
-      currentID = $(currentSection).attr('id');
-      if (currentID == 'section-lightingAndtheCircadianSystem'){
-        $('#goodAnimation')[0].play();
-        $('#badAnimation')[0].play();
-      }else {
-        $('#goodAnimation')[0].currentTime = 0;
-        $('#goodAnimation')[0].pause();
-        $('#badAnimation')[0].currentTime = 0;
-        $('#badAnimation')[0].pause();
-      }
-      currentClass = currentSection.attr('class');
+			currentID = $(currentSection).attr('id');
+			if (currentID == 'section_2-2'){
+				$('#goodAnimation')[0].play();
+				$('#badAnimation')[0].play();
+			}else {
+				$('#goodAnimation')[0].currentTime = 0;
+				$('#goodAnimation')[0].pause();
+				$('#badAnimation')[0].currentTime = 0;
+				$('#badAnimation')[0].pause();
+			}
+			currentClass = currentSection.attr('class');
+			console.log(currentClass);
       if (currentClass == 'row'){
         level1ID = currentSection.parent().parent().attr('class').replace('article-', '');
       }else{
@@ -205,12 +212,43 @@ function accordionScrollSpy(){
   });
 }
 
-$(document).ready(function(){
+//LearnMore
+function learnMore(){
+  $("#learnMore").on('click', function(){
+		console.log('yes');
+    $('html,body').animate({
+      scrollTop: $('#text').offset().top - navOffset
+    }, 1200);
+  });
+}
 
+//NAV OFFSET
+var navOffset;
+function setNavOffset(){
+  navOffset = $("#mainNav").innerHeight();
+  if($(window).width() <= 768){
+    $(".accordion").css('top','');
+  }else{
+    $(".accordion").css('top', navOffset + "px");
+  }
+}
+
+function handleWindowResize(){
+  window.onresize = function(){
+    setNavOffset();
+  }
+}
+
+$(document).ready(function(){
 	//ACCORDION
+	setNavOffset();
+
   accordion();
 
 	accordionScrollSpy();
+
+	//LEARN MORE
+	learnMore();
 	
 	//LAZYLOAD
   lazyload($(".lazy-load"));
